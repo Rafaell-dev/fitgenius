@@ -8,9 +8,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "FitGenius AG | Terminal Inteligente de Musculação",
-  description: "Sistema Especialista com Algoritmo Genético para Prescrição de Rotinas Semanais Otimizadas até 60 minutos.",
-  keywords: ["algoritmo genetico", "treino de musculacao", "fitness", "hipertrofia", "otimizacao"],
+  title: "FitGenius — Planejador de Treinos com Algoritmo Genético",
+  description: "Gera fichas semanais de musculação otimizadas por Algoritmo Genético, respeitando o limite de 60 minutos por dia e o descanso muscular de 48h.",
 };
 
 export default function RootLayout({
@@ -19,8 +18,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR" suppressHydrationWarning className={`${inter.variable} h-full antialiased dark`}>
-      <body className="min-h-full flex flex-col bg-[#070b12] text-slate-100 antialiased selection:bg-emerald-500 selection:text-black">
+    <html lang="pt-BR" suppressHydrationWarning className={`${inter.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col">
         {children}
       </body>
     </html>

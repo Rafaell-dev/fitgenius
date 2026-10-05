@@ -9,7 +9,7 @@ import { StepGenero } from '@/components/StepGenero';
 import { ProcessingView } from '@/components/ProcessingView';
 import { ResultadoTreino } from '@/components/ResultadoTreino';
 import { FormularioTreino, RespostaGerarTreino } from '@/types/treino';
-import { AlertCircle, RotateCcw, Sparkles } from 'lucide-react';
+import { AlertCircle, RotateCcw } from 'lucide-react';
 
 export default function Home() {
   const [passoAtual, setPassoAtual] = useState<number>(1);
@@ -29,6 +29,7 @@ export default function Home() {
     setErroApi(null);
     setCarregandoApi(true);
     setSimulacaoConcluida(false);
+    setResultadoTreino(null);
     setPassoAtual(4);
 
     try {
@@ -63,28 +64,16 @@ export default function Home() {
     setSimulacaoConcluida(true);
   };
 
-  const reiniciarFluxo = () => {
-    setPassoAtual(1);
-    setFrequencia(null);
-    setPontoFraco(null);
-    setGenero(null);
-    setResultadoTreino(null);
-    setSimulacaoConcluida(false);
-    setErroApi(null);
-  };
-
   const voltarParaEdicao = () => {
     setPassoAtual(1);
     setSimulacaoConcluida(false);
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#070b12] text-slate-100">
-      {/* Barra Superior do Terminal */}
+    <div className="min-h-screen flex flex-col">
       <KioskHeader />
 
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col">
-        {/* Stepper Superior */}
+      <main className="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col">
         <KioskStepper
           passoAtual={passoAtual}
           aoClicarPasso={(passo) => {
@@ -97,28 +86,26 @@ export default function Home() {
           }}
         />
 
-        {/* Mensagem de Erro Caso API falhe */}
+        {/* Mensagem de erro caso a API falhe */}
         {erroApi && (
-          <div className="max-w-2xl mx-auto my-6 p-5 rounded-2xl bg-rose-500/10 border border-rose-500/30 text-rose-300 flex items-start gap-3">
-            <AlertCircle className="w-5 h-5 text-rose-400 shrink-0 mt-0.5" />
+          <div className="max-w-xl mx-auto my-6 p-4 rounded-lg bg-red-50 border border-red-200 flex items-start gap-3">
+            <AlertCircle className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
             <div className="flex-1">
-              <h4 className="font-bold text-sm text-white">Falha na Otimização Genética</h4>
-              <p className="text-xs text-rose-300 mt-1">{erroApi}</p>
+              <h4 className="font-semibold text-sm text-red-900">Falha ao gerar o treino</h4>
+              <p className="text-sm text-red-700 mt-1">{erroApi}</p>
               <button
                 type="button"
                 onClick={executarOtimizacaoAG}
-                className="mt-3 px-4 py-1.5 rounded-lg bg-rose-500/20 hover:bg-rose-500/30 text-xs font-bold text-white border border-rose-500/40 cursor-pointer flex items-center gap-1.5"
+                className="mt-3 px-3 py-1.5 rounded-md bg-white hover:bg-red-100 text-sm font-medium text-red-800 border border-red-300 cursor-pointer flex items-center gap-1.5"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
-                Tentar Novamente
+                Tentar novamente
               </button>
             </div>
           </div>
         )}
 
-        {/* CORPO DOS PASSOS */}
         <div className="flex-1 flex flex-col justify-center">
-          {/* PASSO 1: FREQUÊNCIA */}
           {passoAtual === 1 && (
             <StepFrequencia
               valorSelecionado={frequencia}
@@ -127,7 +114,6 @@ export default function Home() {
             />
           )}
 
-          {/* PASSO 2: PONTO FRACO */}
           {passoAtual === 2 && (
             <StepPontoFraco
               valorSelecionado={pontoFraco}
@@ -137,7 +123,6 @@ export default function Home() {
             />
           )}
 
-          {/* PASSO 3: GÉNERO */}
           {passoAtual === 3 && (
             <StepGenero
               valorSelecionado={genero}
@@ -149,39 +134,38 @@ export default function Home() {
             />
           )}
 
-          {/* PASSO 4: PROCESSAMENTO & EXIBIÇÃO DA ROTINA */}
           {passoAtual === 4 && (
             <div className="w-full">
-              {!simulacaoConcluida ? (
+              {carregandoApi && (
+                <div className="text-center py-16 space-y-4">
+                  <div className="w-10 h-10 rounded-full border-2 border-emerald-700 border-t-transparent animate-spin mx-auto" />
+                  <p className="text-stone-500 text-sm">Executando o Algoritmo Genético no servidor...</p>
+                </div>
+              )}
+
+              {!carregandoApi && resultadoTreino && !simulacaoConcluida && (
                 <ProcessingView
                   aoConcluir={handleSimulacaoConcluida}
-                  geracaoAlvo={resultadoTreino?.metricas.geracoesConvergencia || 80}
-                  fitnessEstimado={resultadoTreino?.metricas.fitnessAlcancado || 3300}
+                  historico={resultadoTreino.metricas.historicoEvolucao}
                 />
-              ) : resultadoTreino ? (
+              )}
+
+              {!carregandoApi && resultadoTreino && simulacaoConcluida && (
                 <ResultadoTreino
                   resultado={resultadoTreino}
                   aoRecalcular={executarOtimizacaoAG}
                   aoModificar={voltarParaEdicao}
                 />
-              ) : (
-                <div className="text-center py-16 space-y-4">
-                  <div className="w-12 h-12 rounded-full border-2 border-emerald-500 border-t-transparent animate-spin mx-auto" />
-                  <p className="text-slate-400 text-sm">Carregando dados da rotina gerada...</p>
-                </div>
               )}
             </div>
           )}
         </div>
       </main>
 
-      {/* Rodapé Kiosk */}
-      <footer className="w-full py-4 border-t border-white/5 bg-[#080c14] text-center text-xs text-slate-500 no-print">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <span>FITGENIUS AG • Sistema Especialista de Musculação baseado em Algoritmo Genético</span>
-          <span className="font-mono text-[11px] text-slate-400">
-            Tempo Máximo: 60 min/dia • Descanso Biológico 48h
-          </span>
+      <footer className="w-full py-4 border-t border-stone-200 bg-white text-center text-xs text-stone-500 no-print">
+        <div className="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+          <span>FitGenius — Prescrição de treinos com Algoritmo Genético</span>
+          <span>Limite de 60 min/dia • Descanso muscular de 48h</span>
         </div>
       </footer>
     </div>

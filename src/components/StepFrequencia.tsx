@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { CalendarDays, Zap, Clock, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 interface StepFrequenciaProps {
   valorSelecionado: 2 | 3 | 4 | 5 | null;
@@ -17,63 +17,48 @@ export const StepFrequencia: React.FC<StepFrequenciaProps> = ({
   const opcoes: {
     valor: 2 | 3 | 4 | 5;
     titulo: string;
-    subtitulo: string;
     divisao: string;
     descricao: string;
-    badge: string;
   }[] = [
     {
       valor: 2,
-      titulo: '2x por semana',
-      subtitulo: 'Treino A / B',
-      divisao: 'Terça e Quinta',
-      descricao: 'Ideal para rotinas corridas. Foco em estímulos completos e 48h de descanso obrigatório entre treinos.',
-      badge: 'Eficiência Máxima'
+      titulo: '2 dias por semana',
+      divisao: 'Terça e quinta',
+      descricao: 'Para rotinas corridas. Treinos completos com 48h de descanso garantido entre as sessões.'
     },
     {
       valor: 3,
-      titulo: '3x por semana',
-      subtitulo: 'Clássico A / B / C',
-      divisao: 'Segunda, Quarta e Sexta',
-      descricao: 'Divisão equilibrada mais consagrada do fisiculturismo. Excelente recuperação neuromuscular.',
-      badge: 'Mais Popular'
+      titulo: '3 dias por semana',
+      divisao: 'Segunda, quarta e sexta',
+      descricao: 'Divisão A/B/C clássica, com boa recuperação muscular entre os treinos.'
     },
     {
       valor: 4,
-      titulo: '4x por semana',
-      subtitulo: 'Divisão A / B / C / D',
-      divisao: 'Seg, Ter, Qui e Sex',
-      descricao: 'Ótima distribuição de volume semanal. O AG assegura descanso na quarta-feira e fim de semana.',
-      badge: 'Hipertrofia Ótima'
+      titulo: '4 dias por semana',
+      divisao: 'Segunda, terça, quinta e sexta',
+      descricao: 'Mais volume semanal, com descanso na quarta-feira e no fim de semana.'
     },
     {
       valor: 5,
-      titulo: '5x por semana',
-      subtitulo: 'Avançado A / B / C / D / E',
-      divisao: 'Segunda a Sexta-feira',
-      descricao: 'Volume fracionado de alta densidade. O AG organiza os grupos musculares para nunca treinar o mesmo grupo em dias seguidos.',
-      badge: 'Alta Performance'
+      titulo: '5 dias por semana',
+      divisao: 'Segunda a sexta',
+      descricao: 'Volume alto e fracionado. O algoritmo evita repetir o mesmo grupo em dias seguidos.'
     }
   ];
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-8 animate-in fade-in duration-300">
-      {/* Cabeçalho do Passo */}
+    <div className="w-full max-w-3xl mx-auto space-y-8">
       <div className="text-center space-y-2">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold uppercase tracking-wider">
-          <CalendarDays className="w-3.5 h-3.5" />
-          Passo 1 de 3 • Frequência Semanal
-        </div>
-        <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-          Quantos dias por semana pode treinar?
+        <p className="text-sm text-stone-500">Passo 1 de 3</p>
+        <h2 className="text-2xl sm:text-3xl font-bold text-stone-900 tracking-tight">
+          Quantos dias por semana você pode treinar?
         </h2>
-        <p className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto">
-          Toque na opção desejada. O motor de Algoritmo Genético irá montar a matriz de cromossomos exatamente com o número de dias selecionado.
+        <p className="text-sm text-stone-500 max-w-xl mx-auto">
+          Cada treino gerado respeita o limite de 60 minutos por dia.
         </p>
       </div>
 
-      {/* Grid de Seleção Estilo Terminal */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4" role="radiogroup">
         {opcoes.map(opcao => {
           const selecionado = valorSelecionado === opcao.valor;
 
@@ -81,89 +66,52 @@ export const StepFrequencia: React.FC<StepFrequenciaProps> = ({
             <button
               key={opcao.valor}
               type="button"
+              role="radio"
+              aria-checked={selecionado}
               onClick={() => aoSelecionar(opcao.valor)}
-              className={`text-left p-5 sm:p-6 rounded-2xl transition-all duration-300 relative border group cursor-pointer ${
+              className={`text-left p-5 rounded-lg border transition-colors cursor-pointer ${
                 selecionado
-                  ? 'bg-gradient-to-br from-emerald-950/70 via-slate-900 to-slate-950 border-emerald-500 kiosk-active-glow scale-[1.01]'
-                  : 'bg-slate-900/60 hover:bg-slate-900/90 border-white/10 hover:border-emerald-500/50 hover:scale-[1.005]'
+                  ? 'bg-emerald-50 border-emerald-700 ring-1 ring-emerald-700'
+                  : 'bg-white border-stone-200 hover:border-stone-400'
               }`}
             >
-              {/* Badge de Destaque */}
-              <div className="flex items-center justify-between mb-3">
-                <span
-                  className={`text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${
-                    selecionado
-                      ? 'bg-emerald-500 text-slate-950 border-emerald-400'
-                      : 'bg-slate-800 text-slate-300 border-slate-700 group-hover:border-slate-600'
-                  }`}
-                >
-                  {opcao.badge}
-                </span>
-
-                <div className="flex items-center gap-1.5 text-xs text-slate-400">
-                  <Clock className="w-3.5 h-3.5 text-cyan-400" />
-                  <span>≤ 60 min/dia</span>
-                </div>
-              </div>
-
-              {/* Botão Valor e Título */}
-              <div className="flex items-center gap-4 mb-3">
+              <div className="flex items-center gap-4 mb-2">
                 <div
-                  className={`w-14 h-14 rounded-xl flex items-center justify-center text-xl font-black transition-all ${
-                    selecionado
-                      ? 'bg-emerald-500 text-slate-950 shadow-lg shadow-emerald-500/30'
-                      : 'bg-slate-800 text-slate-200 group-hover:bg-slate-700'
+                  className={`w-11 h-11 rounded-md flex items-center justify-center text-lg font-bold num ${
+                    selecionado ? 'bg-emerald-700 text-white' : 'bg-stone-100 text-stone-700'
                   }`}
                 >
                   {opcao.valor}x
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-white group-hover:text-emerald-300 transition-colors">
-                    {opcao.titulo}
-                  </h3>
-                  <p className="text-xs font-semibold text-emerald-400">
+                  <h3 className="text-base font-semibold text-stone-900">{opcao.titulo}</h3>
+                  <p className={`text-xs font-medium ${selecionado ? 'text-emerald-800' : 'text-stone-500'}`}>
                     {opcao.divisao}
                   </p>
                 </div>
               </div>
 
-              {/* Descrição detalhada */}
-              <p className="text-xs text-slate-400 leading-relaxed">
+              <p className="text-sm text-stone-600 leading-relaxed">
                 {opcao.descricao}
               </p>
-
-              {/* Indicador de Seleção */}
-              <div className="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs">
-                <span className="text-slate-500 font-mono text-[11px]">
-                  Cromossomo: {opcao.valor} arrays diários
-                </span>
-                <span
-                  className={`font-semibold transition-colors flex items-center gap-1 ${
-                    selecionado ? 'text-emerald-400' : 'text-slate-500 group-hover:text-slate-300'
-                  }`}
-                >
-                  {selecionado ? 'Selecionado ✓' : 'Tocar para escolher'}
-                </span>
-              </div>
             </button>
           );
         })}
       </div>
 
-      {/* Botão de Ação / Avançar */}
-      <div className="flex justify-end pt-4">
+      <div className="flex justify-end pt-2">
         <button
           type="button"
           onClick={aoAvancar}
           disabled={!valorSelecionado}
-          className={`flex items-center gap-3 px-8 py-4 rounded-xl text-base font-bold transition-all duration-300 ${
+          className={`flex items-center gap-2 px-6 py-3 rounded-md text-sm font-semibold transition-colors ${
             valorSelecionado
-              ? 'bg-gradient-to-r from-emerald-500 to-emerald-400 text-slate-950 shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40 hover:scale-[1.02] cursor-pointer'
-              : 'bg-slate-800 text-slate-500 cursor-not-allowed border border-white/5'
+              ? 'bg-emerald-700 hover:bg-emerald-800 text-white cursor-pointer'
+              : 'bg-stone-200 text-stone-400 cursor-not-allowed'
           }`}
         >
-          <span>Continuar para Ponto Fraco</span>
-          <ArrowRight className="w-5 h-5" />
+          <span>Continuar</span>
+          <ArrowRight className="w-4 h-4" />
         </button>
       </div>
     </div>

@@ -129,7 +129,7 @@ export function calcularFitness(
   params: FormularioTreino
 ): { fitness: number; metricas: NonNullable<Individuo['metricasDetalhadas']> } {
   let score = 1000;
-  const pontoFracoGrupo = params.pontoFraco === 'Costas' ? 'Costas' : params.pontoFraco;
+  const pontoFracoGrupo = params.pontoFraco;
   
   const diasComPontoFraco = new Set<number>();
   const todosGruposSemana = new Set<GrupoMuscular>();
@@ -301,13 +301,21 @@ function mutar(
 
     const dia = mutado[diaIdx];
     const idsUsados = new Set(dia);
-    let tempoTotalDia = dia.reduce((acc, id) => acc + (mapaExercicios.get(id)?.tempo_minutos || 0), 0);
+    const tempoTotalDia =dia.reduce((acc, id) => acc + (mapaExercicios.get(id)?.tempo_minutos || 0), 0);
 
     // Estratégia de mutação inteligente:
-    // A) Se tempo > 60 min, remove um exercício ou troca o mais demorado por um mais curto
+    // A) Se tempo > 60 min, remove o exercício mais demorado do dia (reparo temporal)
     if (tempoTotalDia > 60 && dia.length > 3) {
-      const idxParaRemover = Math.floor(Math.random() * dia.length);
-      dia.splice(idxParaRemover, 1);
+      let idxMaisLongo = 0;
+      let maiorTempo = -1;
+      for (let i = 0; i < dia.length; i++) {
+        const t = mapaExercicios.get(dia[i])?.tempo_minutos || 0;
+        if (t > maiorTempo) {
+          maiorTempo = t;
+          idxMaisLongo = i;
+        }
+      }
+      dia.splice(idxMaisLongo, 1);
       continue;
     }
 
@@ -324,8 +332,8 @@ function mutar(
     if (dia.length > 0) {
       const idxTroca = Math.floor(Math.random() * dia.length);
       
-      // 40% de chance de focar a mutação no grupo do ponto fraco se necessário
-      const pontoFracoGrupo = params.pontoFraco === 'Costas' ? 'Costas' : params.pontoFraco;
+      // ~35% de chance de focar a mutação no grupo do ponto fraco
+      const pontoFracoGrupo = params.pontoFraco;
       let novoEx: Exercicio;
       
       if (Math.random() < 0.35) {
@@ -373,7 +381,7 @@ export function executarAlgoritmoGenetico(
   const tInicio = performance.now();
   const config: ConfigAG = { ...CONFIG_PADRAO, ...configCustomizada };
   const pool = obterPoolExerciciosPonderado(params.genero);
-  const pontoFracoGrupo = params.pontoFraco === 'Costas' ? 'Costas' : params.pontoFraco;
+  const pontoFracoGrupo = params.pontoFraco;
 
   // 1. Geração da População Inicial
   let populacao: Individuo[] = [];
@@ -553,9 +561,9 @@ export function formatarPlanoTreino(
     const gruposArray = Array.from(gruposSet);
     
     // Nome do foco do dia
-    let foco = gruposArray.slice(0, 2).join(' & ');
-    if (gruposArray.includes(params.pontoFraco === 'Costas' ? 'Costas' : params.pontoFraco)) {
-      foco += ` ★ Foco Prioritário`;
+    let foco = gruposArray.slice(0, 2).join(' e ');
+    if (gruposArray.includes(params.pontoFraco)) {
+      foco += ' (ponto fraco)';
     }
 
     return {
