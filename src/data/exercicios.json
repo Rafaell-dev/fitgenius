@@ -1,0 +1,371 @@
+[
+  {
+    "id": "supino_reto_barra",
+    "nome": "Supino Reto com Barra",
+    "grupo_muscular": "Peito",
+    "tempo_minutos": 9,
+    "foco_genero": "masc",
+    "series_sugeridas": "4 séries x 8-10 reps",
+    "descricao": "Exercício composto base para peitoral maior e tríceps."
+  },
+  {
+    "id": "supino_inclinado_halteres",
+    "nome": "Supino Inclinado com Halteres",
+    "grupo_muscular": "Peito",
+    "tempo_minutos": 8,
+    "foco_genero": "neutro",
+    "series_sugeridas": "4 séries x 10-12 reps",
+    "descricao": "Ênfase na porção clavicular (superior) do peitoral."
+  },
+  {
+    "id": "crucifixo_crossover_polia",
+    "nome": "Crossover na Polia Média",
+    "grupo_muscular": "Peito",
+    "tempo_minutos": 7,
+    "foco_genero": "neutro",
+    "series_sugeridas": "3 séries x 12-15 reps",
+    "descricao": "Isolamento peitoral com tensão contínua em todo o arco de movimento."
+  },
+  {
+    "id": "peck_deck_voador",
+    "nome": "Peck Deck (Voador Peitoral)",
+    "grupo_muscular": "Peito",
+    "tempo_minutos": 7,
+    "foco_genero": "neutro",
+    "series_sugeridas": "3 séries x 12-15 reps",
+    "descricao": "Trabalho analítico seguro de adução horizontal de ombro."
+  },
+  {
+    "id": "supino_declinado_halteres",
+    "nome": "Supino Declinado com Halteres",
+    "grupo_muscular": "Peito",
+    "tempo_minutos": 8,
+    "foco_genero": "masc",
+    "series_sugeridas": "3 séries x 10 reps",
+    "descricao": "Ativação pronunciada da porção esternal/inferior do peitoral."
+  },
+  {
+    "id": "flexao_solo_lastro",
+    "nome": "Flexão de Braço (Push-ups)",
+    "grupo_muscular": "Peito",
+    "tempo_minutos": 6,
+    "foco_genero": "masc",
+    "series_sugeridas": "3 séries até a falha técnica",
+    "descricao": "Excelente para peitoral, estabilização escapular e core."
+  },
+  {
+    "id": "supino_vertical_maquina",
+    "nome": "Supino Articulado na Máquina",
+    "grupo_muscular": "Peito",
+    "tempo_minutos": 7,
+    "foco_genero": "fem",
+    "series_sugeridas": "3 séries x 10-12 reps",
+    "descricao": "Biomecânica guiada ideal para progressão de carga segura."
+  },
+  {
+    "id": "puxada_alta_frontal",
+    "nome": "Puxada Frontal no Pulley",
+    "grupo_muscular": "Costas",
+    "tempo_minutos": 8,
+    "foco_genero": "neutro",
+    "series_sugeridas": "4 séries x 10-12 reps",
+    "descricao": "Trabalha largura de dorsal (latíssimo) e redondo maior."
+  },
+  {
+    "id": "remada_curvada_barra",
+    "nome": "Remada Curvada com Barra",
+    "grupo_muscular": "Costas",
+    "tempo_minutos": 9,
+    "foco_genero": "masc",
+    "series_sugeridas": "4 séries x 8-10 reps",
+    "descricao": "Espessura das costas, rombóides e trapézio médio."
+  },
+  {
+    "id": "remada_baixa_triangulo",
+    "nome": "Remada Baixa no Triângulo",
+    "grupo_muscular": "Costas",
+    "tempo_minutos": 7,
+    "foco_genero": "neutro",
+    "series_sugeridas": "3 séries x 10-12 reps",
+    "descricao": "Movimento de tração horizontal com alta ativação muscular."
+  },
+  {
+    "id": "barra_fixa_pronada",
+    "nome": "Barra Fixa (Pull-Up)",
+    "grupo_muscular": "Costas",
+    "tempo_minutos": 9,
+    "foco_genero": "masc",
+    "series_sugeridas": "4 séries x 6-10 reps",
+    "descricao": "Exercício calistênico rei para amplitude de costas."
+  },
+  {
+    "id": "remada_serrote_haltere",
+    "nome": "Remada Unilateral com Haltere (Serrote)",
+    "grupo_muscular": "Costas",
+    "tempo_minutos": 8,
+    "foco_genero": "neutro",
+    "series_sugeridas": "3 séries x 10-12 reps",
+    "descricao": "Grande amplitude e correção de assimetrias posturais."
+  },
+  {
+    "id": "pulldown_corda_cabo",
+    "nome": "Pulldown na Polia com Corda",
+    "grupo_muscular": "Costas",
+    "tempo_minutos": 6,
+    "foco_genero": "neutro",
+    "series_sugeridas": "3 séries x 12-15 reps",
+    "descricao": "Isolamento de grande dorsal sem fadigar bíceps."
+  },
+  {
+    "id": "levantamento_terra",
+    "nome": "Levantamento Terra (Deadlift)",
+    "grupo_muscular": "Costas",
+    "tempo_minutos": 10,
+    "foco_genero": "masc",
+    "series_sugeridas": "4 séries x 6-8 reps",
+    "descricao": "Exercício primordial de cadeia posterior completa e força global."
+  },
+  {
+    "id": "crucifixo_invertido_maquina",
+    "nome": "Crucifixo Invertido (Deltoide Posterior)",
+    "grupo_muscular": "Costas",
+    "tempo_minutos": 6,
+    "foco_genero": "neutro",
+    "series_sugeridas": "3 séries x 12-15 reps",
+    "descricao": "Foco nos deltoides posteriores e rombóides para postura ereta."
+  },
+  {
+    "id": "agachamento_livre_barra",
+    "nome": "Agachamento Livre com Barra",
+    "grupo_muscular": "Perna",
+    "tempo_minutos": 10,
+    "foco_genero": "neutro",
+    "series_sugeridas": "4 séries x 8-10 reps",
+    "descricao": "O clássico construtor de quadríceps, glúteos e estabilidade."
+  },
+  {
+    "id": "leg_press_45",
+    "nome": "Leg Press 45 Graus",
+    "grupo_muscular": "Perna",
+    "tempo_minutos": 9,
+    "foco_genero": "neutro",
+    "series_sugeridas": "4 séries x 10-12 reps",
+    "descricao": "Permite sobrecarga de tensão mecânica em quadríceps com segurança lombar."
+  },
+  {
+    "id": "cadeira_extensora",
+    "nome": "Cadeira Extensora",
+    "grupo_muscular": "Perna",
+    "tempo_minutos": 7,
+    "foco_genero": "neutro",
+    "series_sugeridas": "3 séries x 12-15 reps",
+    "descricao": "Isolamento total do reto femoral e vastos do quadríceps."
+  },
+  {
+    "id": "mesa_flexora",
+    "nome": "Mesa Flexora (Posterior de Coxa)",
+    "grupo_muscular": "Perna",
+    "tempo_minutos": 7,
+    "foco_genero": "neutro",
+    "series_sugeridas": "3 séries x 10-12 reps",
+    "descricao": "Flexão de joelhos essencial para equilíbrio agonista/antagonista da perna."
+  },
+  {
+    "id": "elevacao_pelvica_barra",
+    "nome": "Elevação Pélvica com Barra (Hip Thrust)",
+    "grupo_muscular": "Perna",
+    "tempo_minutos": 9,
+    "foco_genero": "fem",
+    "series_sugeridas": "4 séries x 10-12 reps",
+    "descricao": "Exercício de ponta para ativação e hipertrofia máxima de glúteos."
+  },
+  {
+    "id": "cadeira_abdutora",
+    "nome": "Cadeira Abdutora",
+    "grupo_muscular": "Perna",
+    "tempo_minutos": 6,
+    "foco_genero": "fem",
+    "series_sugeridas": "3 séries x 15-20 reps",
+    "descricao": "Fortalecimento do glúteo médio e estabilidade pélvica."
+  },
+  {
+    "id": "stiff_halteres",
+    "nome": "Stiff com Halteres",
+    "grupo_muscular": "Perna",
+    "tempo_minutos": 8,
+    "foco_genero": "fem",
+    "series_sugeridas": "4 séries x 10-12 reps",
+    "descricao": "Alongamento sob tensão para isquiotibiais e glúteos."
+  },
+  {
+    "id": "agachamento_bulgaro",
+    "nome": "Agachamento Búlgaro com Halteres",
+    "grupo_muscular": "Perna",
+    "tempo_minutos": 8,
+    "foco_genero": "fem",
+    "series_sugeridas": "3 séries x 10-12 reps por perna",
+    "descricao": "Trabalho unilateral intenso de glúteo e quadríceps."
+  },
+  {
+    "id": "panturrilha_em_pe",
+    "nome": "Panturrilha em Pé no Aparelho",
+    "grupo_muscular": "Perna",
+    "tempo_minutos": 6,
+    "foco_genero": "neutro",
+    "series_sugeridas": "4 séries x 15-20 reps",
+    "descricao": "Hipertrofia de gastrocnêmio com contração de pico no topo."
+  },
+  {
+    "id": "passada_afundo",
+    "nome": "Passada / Afundo Caminhando",
+    "grupo_muscular": "Perna",
+    "tempo_minutos": 8,
+    "foco_genero": "fem",
+    "series_sugeridas": "3 séries x 20 passos",
+    "descricao": "Condicionamento e estímulo metabólico para membros inferiores."
+  },
+  {
+    "id": "rosca_direta_barra_w",
+    "nome": "Rosca Direta com Barra W",
+    "grupo_muscular": "Braço",
+    "tempo_minutos": 7,
+    "foco_genero": "neutro",
+    "series_sugeridas": "3 séries x 10-12 reps",
+    "descricao": "Construção de pico de bíceps com pegada anatômica protetora de punho."
+  },
+  {
+    "id": "rosca_martelo_halteres",
+    "nome": "Rosca Martelo Alternada",
+    "grupo_muscular": "Braço",
+    "tempo_minutos": 7,
+    "foco_genero": "masc",
+    "series_sugeridas": "3 séries x 10-12 reps",
+    "descricao": "Desenvolvimento do músculo braquial e braquiorradial do antebraço."
+  },
+  {
+    "id": "rosca_scott_maquina",
+    "nome": "Rosca Scott na Máquina",
+    "grupo_muscular": "Braço",
+    "tempo_minutos": 7,
+    "foco_genero": "neutro",
+    "series_sugeridas": "3 séries x 10-12 reps",
+    "descricao": "Isolamento estrito da cabeça curta do bíceps sem impulso."
+  },
+  {
+    "id": "triceps_corda_polia",
+    "nome": "Tríceps na Polia com Corda",
+    "grupo_muscular": "Braço",
+    "tempo_minutos": 7,
+    "foco_genero": "neutro",
+    "series_sugeridas": "4 séries x 12-15 reps",
+    "descricao": "Abertura no final do movimento para contração da cabeça lateral."
+  },
+  {
+    "id": "triceps_frances_haltere",
+    "nome": "Tríceps Francês Bilateral com Haltere",
+    "grupo_muscular": "Braço",
+    "tempo_minutos": 7,
+    "foco_genero": "neutro",
+    "series_sugeridas": "3 séries x 10-12 reps",
+    "descricao": "Alongamento ideal da cabeça longa do tríceps em flexão de ombro."
+  },
+  {
+    "id": "triceps_testa_barra_w",
+    "nome": "Tríceps Testa com Barra W",
+    "grupo_muscular": "Braço",
+    "tempo_minutos": 8,
+    "foco_genero": "masc",
+    "series_sugeridas": "3 séries x 10-12 reps",
+    "descricao": "Exercício de força clássico para espessura de braço."
+  },
+  {
+    "id": "mergulho_paralelas",
+    "nome": "Tríceps nas Paralelas (Dips)",
+    "grupo_muscular": "Braço",
+    "tempo_minutos": 8,
+    "foco_genero": "masc",
+    "series_sugeridas": "3 séries x 8-10 reps",
+    "descricao": "Movimento composto de alta carga para tríceps e peitoral inferior."
+  },
+  {
+    "id": "triceps_coice_cabo",
+    "nome": "Tríceps Coice Unilateral no Cabo",
+    "grupo_muscular": "Braço",
+    "tempo_minutos": 6,
+    "foco_genero": "fem",
+    "series_sugeridas": "3 séries x 12-15 reps",
+    "descricao": "Definição muscular de braço com curva de resistência constante."
+  },
+  {
+    "id": "rosca_inclinada_halteres",
+    "nome": "Rosca Bíceps no Banco Inclinado",
+    "grupo_muscular": "Braço",
+    "tempo_minutos": 7,
+    "foco_genero": "neutro",
+    "series_sugeridas": "3 séries x 10-12 reps",
+    "descricao": "Alongamento acentuado da cabeça longa do bíceps braquial."
+  },
+  {
+    "id": "desenvolvimento_halteres",
+    "nome": "Desenvolvimento com Halteres",
+    "grupo_muscular": "Ombro",
+    "tempo_minutos": 8,
+    "foco_genero": "neutro",
+    "series_sugeridas": "4 séries x 10-12 reps",
+    "descricao": "Força e volume para deltoides anteriores e laterais."
+  },
+  {
+    "id": "elevacao_lateral_halteres",
+    "nome": "Elevação Lateral com Halteres",
+    "grupo_muscular": "Ombro",
+    "tempo_minutos": 6,
+    "foco_genero": "neutro",
+    "series_sugeridas": "4 séries x 12-15 reps",
+    "descricao": "Essencial para conferir largura escapular e formato em V."
+  },
+  {
+    "id": "desenvolvimento_militar_barra",
+    "nome": "Desenvolvimento Militar em Pé",
+    "grupo_muscular": "Ombro",
+    "tempo_minutos": 9,
+    "foco_genero": "masc",
+    "series_sugeridas": "4 séries x 6-8 reps",
+    "descricao": "Potência vertical para ombros e estabilidade do core."
+  },
+  {
+    "id": "elevacao_lateral_polia",
+    "nome": "Elevação Lateral na Polia Baixa",
+    "grupo_muscular": "Ombro",
+    "tempo_minutos": 6,
+    "foco_genero": "neutro",
+    "series_sugeridas": "3 séries x 12-15 reps por lado",
+    "descricao": "Tensão uniforme na porção medial do deltoide."
+  },
+  {
+    "id": "abdominal_supra_cabo",
+    "nome": "Abdominal Crunch na Polia Alta",
+    "grupo_muscular": "Core",
+    "tempo_minutos": 6,
+    "foco_genero": "neutro",
+    "series_sugeridas": "3 séries x 15-20 reps",
+    "descricao": "Sobrecarga progressiva para o reto abdominal."
+  },
+  {
+    "id": "prancha_isometrica",
+    "nome": "Prancha Frontal Isométrica",
+    "grupo_muscular": "Core",
+    "tempo_minutos": 5,
+    "foco_genero": "neutro",
+    "series_sugeridas": "3 séries de 45-60 segundos",
+    "descricao": "Ativação do transverso abdominal e estabilidade lombar."
+  },
+  {
+    "id": "elevacao_pernas_barra",
+    "nome": "Elevação de Pernas Suspenso na Barra",
+    "grupo_muscular": "Core",
+    "tempo_minutos": 6,
+    "foco_genero": "neutro",
+    "series_sugeridas": "3 séries x 12-15 reps",
+    "descricao": "Fortalecimento do abdômen infra e flexores de quadril."
+  }
+]
